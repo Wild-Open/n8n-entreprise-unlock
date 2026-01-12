@@ -15,6 +15,9 @@ LICENSE_FILE="/usr/local/lib/node_modules/n8n/dist/license.js"
 echo "📝 Modifying isLicensed() method to always return true..."
 docker exec -u root "$CONTAINER_NAME" sed -i 's/return this\.manager?.hasFeatureEnabled(feature) ?? false;/return true;/' "$LICENSE_FILE"
 
+echo "📝 Modifying isFeatureEnabled() method to always return true..."
+docker exec -u root "$CONTAINER_NAME" sed -i 's/return this\.isLicensed(feature);/return true;/' "$LICENSE_FILE"
+
 echo "📝 Modifying isWithinUsersLimit() method to always return true..."
 docker exec -u root "$CONTAINER_NAME" sed -i 's/return this.getUsersLimit() === constants_1.UNLIMITED_LICENSE_QUOTA;/return true;/' "$LICENSE_FILE"
 
@@ -31,6 +34,9 @@ echo "✅ License bypass completed successfully!"
 # Verify the changes
 echo "🔍 Verifying isLicensed() modification..."
 docker exec "$CONTAINER_NAME" grep -A 2 "isLicensed(feature)" "$LICENSE_FILE"
+
+echo "🔍 Verifying isFeatureEnabled() modification..."
+docker exec "$CONTAINER_NAME" grep -A 2 "isFeatureEnabled(feature)" "$LICENSE_FILE"
 
 echo "🔍 Verifying isWithinUsersLimit() modification..."
 docker exec "$CONTAINER_NAME" grep -A 2 "isWithinUsersLimit()" "$LICENSE_FILE"
