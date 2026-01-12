@@ -89,6 +89,17 @@ echo ""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
+# Download required scripts if they don't exist
+if [ ! -f "permissions-unlock.sh" ]; then
+    echo "📥 Downloading permissions-unlock.sh..."
+    curl -sSL https://raw.githubusercontent.com/Wild-Open/n8n-entreprise-unlock/main/permissions-unlock.sh -o permissions-unlock.sh
+fi
+
+if [ ! -f "license-bypass.sh" ]; then
+    echo "📥 Downloading license-bypass.sh..."
+    curl -sSL https://raw.githubusercontent.com/Wild-Open/n8n-entreprise-unlock/main/license-bypass.sh -o license-bypass.sh
+fi
+
 # Make scripts executable
 chmod +x permissions-unlock.sh license-bypass.sh
 
