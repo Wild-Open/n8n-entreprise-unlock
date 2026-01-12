@@ -19,7 +19,7 @@ echo "📝 Modifying isWithinUsersLimit() method to always return true..."
 docker exec -u root "$CONTAINER_NAME" sed -i 's/return this.getUsersLimit() === constants_1.UNLIMITED_LICENSE_QUOTA;/return true;/' "$LICENSE_FILE"
 
 echo "📝 Removing production license warning..."
-if [ "${N8N_HIDE_PRODUCTION_WARNING:-true}" = "true" ]; then
+if [ "${N8N_HIDE_PRODUCTION_WARNING:-false}" = "true" ]; then
     docker exec -u root "$CONTAINER_NAME" sed -i 's/if (!this.isLicensed())/if (false)/' "$LICENSE_FILE"
     echo "  ✅ Production warning hidden (N8N_HIDE_PRODUCTION_WARNING=true)"
 else
@@ -35,7 +35,7 @@ docker exec "$CONTAINER_NAME" grep -A 2 "isLicensed(feature)" "$LICENSE_FILE"
 echo "🔍 Verifying isWithinUsersLimit() modification..."
 docker exec "$CONTAINER_NAME" grep -A 2 "isWithinUsersLimit()" "$LICENSE_FILE"
 
-if [ "${N8N_HIDE_PRODUCTION_WARNING:-true}" = "true" ]; then
+if [ "${N8N_HIDE_PRODUCTION_WARNING:-false}" = "true" ]; then
     echo "🔍 Verifying production warning removal..."
     docker exec "$CONTAINER_NAME" grep -A 2 "if (!this.isLicensed())" "$LICENSE_FILE"
 fi

@@ -87,7 +87,7 @@ Modifies these methods in `/usr/local/lib/node_modules/n8n/dist/license.js`:
 - `if (!this.isLicensed())` - Conditionally modified based on `N8N_HIDE_PRODUCTION_WARNING` env var
 
 **Environment variable:**
-- `N8N_HIDE_PRODUCTION_WARNING` (default: `true`) - Set to `false` to keep the "This n8n instance is not licensed for production purposes" warning
+- `N8N_HIDE_PRODUCTION_WARNING` (default: `false`) - Set to `true` to hide the "This n8n instance is not licensed for production purposes" warning
 
 ## 🔄 Reverting Changes
 

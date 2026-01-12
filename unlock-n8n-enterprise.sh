@@ -16,7 +16,7 @@ echo -e "${BLUE}🔓 n8n Enterprise Unlock Script${NC}"
 echo -e "${BLUE}=================================${NC}"
 echo ""
 echo -e "${YELLOW}Environment variables:${NC}"
-echo -e "  N8N_HIDE_PRODUCTION_WARNING=${N8N_HIDE_PRODUCTION_WARNING:-true} (hide production warning)"
+echo -e "  N8N_HIDE_PRODUCTION_WARNING=${N8N_HIDE_PRODUCTION_WARNING:-false} (hide production warning)"
 echo ""
 
 # Default containers - you can customize this list
