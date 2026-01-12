@@ -159,7 +159,7 @@ This unlock enables full development testing of:
 For experienced users:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-repo/n8n-enterprise-unlock/main/unlock-n8n-enterprise.sh | bash -s -- container-name
+curl -sSL https://raw.githubusercontent.com/Wild-Open/n8n-entreprise-unlock/main/unlock-n8n-enterprise.sh | bash -s -- container-name
 ```
 
 ## 📞 Support
