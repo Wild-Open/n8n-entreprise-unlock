@@ -20,7 +20,7 @@ echo -e "  N8N_HIDE_PRODUCTION_WARNING=${N8N_HIDE_PRODUCTION_WARNING:-false} (hi
 echo ""
 
 # Default containers - you can customize this list
-DEFAULT_CONTAINERS=("n8n-n8n-1" "n8n-mbataa-n8n-1" "n8n-mb2athena-n8n-1" "n8n-mbatad-n8n-1")
+DEFAULT_CONTAINERS=("n8n-n8n-1")
 
 # Function to display usage
 usage() {

@@ -25,21 +25,18 @@ These scripts modify n8n core files to bypass license checks and permission rest
 
 ### Quick Start (Default Containers)
 
-The script automatically targets these common n8n containers:
+The script automatically targets the default n8n container:
 - `n8n-n8n-1`
-- `n8n-mbataa-n8n-1` 
-- `n8n-mb2athena-n8n-1`
-- `n8n-mbatad-n8n-1`
 
 ```bash
 # Make scripts executable
 chmod +x unlock-n8n-enterprise.sh
 
-# Run unlock on default containers
+# Run unlock on default container
 ./unlock-n8n-enterprise.sh
 
-# Restart containers to apply changes
-docker restart n8n-n8n-1 n8n-mbataa-n8n-1 n8n-mb2athena-n8n-1 n8n-mbatad-n8n-1
+# Restart container to apply changes
+docker restart n8n-n8n-1
 ```
 
 ### Custom Container Names
@@ -94,8 +91,8 @@ Modifies these methods in `/usr/local/lib/node_modules/n8n/dist/license.js`:
 To restore original functionality, you'll need to restart containers with fresh images:
 
 ```bash
-# Remove modified containers
-docker rm -f n8n-n8n-1 n8n-mbataa-n8n-1 n8n-mb2athena-n8n-1 n8n-mbatad-n8n-1
+# Remove modified container
+docker rm -f n8n-n8n-1
 
 # Pull fresh images and restart (adjust your docker-compose or commands)
 docker-compose up -d
